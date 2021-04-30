@@ -1,5 +1,6 @@
 from Leer_csv import *
 from division import *
+from Seleccionar import *
 
 ''' Esta clase es para extraer los datos, crear la tabla y llenarla con los datos '''
 class Procesar_datos:
@@ -10,7 +11,7 @@ class Procesar_datos:
         self.tabla = []
         self.nueva_lista = []
         self.lista_claves = []
-        self.archivo = "210323COVID19MEXICO.csv"
+        self.archivo = 'C:\\Users\\japb1\\OneDrive - Universidad Autonoma de Yucatan\\facultad\Análisis exploratorio de datos\\ADA 3- V2\\ada 3-codigo -v1\\210323COVID19MEXICO.csv'
         self.numero_estados= 32
         ##se ajusto el rango de edad de 125 por el tipo de enfermedades 10
         self.rango_edades = 125
@@ -24,7 +25,7 @@ class Procesar_datos:
         while i < self.numero_estados:
             lista_temporal = []
             j= 0
-            while j < self.rango_edades:
+            while j < self.tipos_enfermedades:
                 lista_temporal.append(0)
                 j = j + 1
             i = i + 1
@@ -53,9 +54,17 @@ class Procesar_datos:
             for i in self.contenido:
                 casteo = division(i)
                 casteo.proceso()
-                casteo.hacer_ajuste_2()
+                #casteo.hacer_ajuste_2()
+                casteo.hacer_ajuste_3()
                 # print(casteo.lista_cadena)
-                self.incrementar_contadores(casteo.lista_cadena[0] - 1, casteo.lista_cadena[2])
+
+                clasificar = Seleccionar(casteo.lista_cadena)
+                clasificar.Hacer_seleccion()
+
+                if clasificar.resultado == True:
+                    self.incrementar_contadores(clasificar.ruta_individuo[0]-1, clasificar.ruta_individuo[1])
+
+                #self.incrementar_contadores(casteo.lista_cadena[0] - 1, casteo.lista_cadena[2])
                 # print(casteo.lista_cadena)
         else:
             print("defunciones")
@@ -81,7 +90,6 @@ class Procesar_datos:
             if casteo.lista_cadena[1] != "9999-99-99":
                 self.incrementar_contadores(casteo.lista_cadena[0]-1,casteo.lista_cadena[2])
             #print(casteo.lista_cadena)
-
 
 
 

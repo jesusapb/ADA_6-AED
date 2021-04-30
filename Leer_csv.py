@@ -17,7 +17,7 @@ class Leer_csv:
     def imprimir_csv(self):
         for i in self.contenido:
             print(i)
-            print(self.contenido)
+            #print(self.contenido)
 
 
     # Metodo para pruebas locales, NO USAR en el programa global
@@ -26,5 +26,13 @@ class Leer_csv:
         print(self.contenido)
         print(len(self.contenido))
         print(len(self.contenido[0]))
+
+
+#ruta ='C:\\Users\\japb1\\OneDrive - Universidad Autonoma de Yucatan\\facultad\Análisis exploratorio de datos\\ADA 3- V2\\ada 3-codigo -v1\\210323COVID19MEXICO.csv'
+#prueba = Leer_csv(ruta)
+#prueba.imprimir_csv()
+
+
+
 
 

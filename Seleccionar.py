@@ -18,7 +18,7 @@ class Seleccionar:
         if self.res_sum == self.total_ideal:
             self.resultado = True
             #Nota es posible que sea mejor no agregar el  + 1
-            self.pos_positivo = self.individuo[1:].index(1) + 1
+            self.pos_positivo = self.individuo[1:].index(1)
             self.ruta_individuo.append(self.individuo[0])
             self.ruta_individuo.append(self.pos_positivo)
 
@@ -34,11 +34,12 @@ class Seleccionar:
 
 
 
-lista_1 = [1,2,1,2,2,2,2,2,2,2,2]
-lista_2 = [3,1,1,1,1,2,2,2,2,2,2]
-lista_2_inc = [3,1,1,1,1,2,2,2,2,2]
+#lista_1 = [4,2,2,2,2,2,2,2,2,2,1]
+#lista_2 = [3,1,1,1,1,2,2,2,2,2,2]
+#lista_2_inc = [3,1,1,1,1,2,2,2,2,2]
+#lista_prueba = [20, 1, 2, 2, 2, 1, 2, 2, 1, 2, 2]
 
-prueba = Seleccionar(lista_1)
-prueba.Hacer_seleccion()
-prueba.imprimir_resultado()
+#prueba = Seleccionar(lista_1)
+#prueba.Hacer_seleccion()
+#prueba.imprimir_resultado()
 
