@@ -5,8 +5,8 @@ from Seleccionar import *
 ''' Esta clase es para extraer los datos, crear la tabla y llenarla con los datos '''
 class Procesar_datos:
 
-    def __init__(self,tipo=0):
-        self.tipo = tipo
+    def __init__(self):
+        #self.tipo = tipo
         self.contenido = []
         self.tabla = []
         self.nueva_lista = []
@@ -14,7 +14,7 @@ class Procesar_datos:
         self.archivo = 'C:\\Users\\japb1\\OneDrive - Universidad Autonoma de Yucatan\\facultad\Análisis exploratorio de datos\\ADA 3- V2\\ada 3-codigo -v1\\210323COVID19MEXICO.csv'
         self.numero_estados= 32
         ##se ajusto el rango de edad de 125 por el tipo de enfermedades 10
-        self.rango_edades = 125
+        #self.rango_edades = 125
         self.tipos_enfermedades = 10
 
 
@@ -49,48 +49,20 @@ class Procesar_datos:
         primer_elemento = division(elemento_primero)
         primer_elemento.proceso()
         self.lista_claves = primer_elemento.lista_cadena
-        if self.tipo ==0:
-            print("detectados")
-            for i in self.contenido:
-                casteo = division(i)
-                casteo.proceso()
+        for i in self.contenido:
+            casteo = division(i)
+            casteo.proceso()
                 #casteo.hacer_ajuste_2()
-                casteo.hacer_ajuste_3()
+            casteo.hacer_ajuste_3()
                 # print(casteo.lista_cadena)
 
-                clasificar = Seleccionar(casteo.lista_cadena)
-                clasificar.Hacer_seleccion()
+            clasificar = Seleccionar(casteo.lista_cadena)
+            clasificar.Hacer_seleccion()
 
-                if clasificar.resultado == True:
-                    self.incrementar_contadores(clasificar.ruta_individuo[0]-1, clasificar.ruta_individuo[1])
-
+            if clasificar.resultado == True:
+                self.incrementar_contadores(clasificar.ruta_individuo[0]-1, clasificar.ruta_individuo[1])
                 #self.incrementar_contadores(casteo.lista_cadena[0] - 1, casteo.lista_cadena[2])
                 # print(casteo.lista_cadena)
-        else:
-            print("defunciones")
-
-
-    # Eliminar este metodo por ser insuficiente
-    def construir_proceso_2(self):
-        self.construir_tabla()
-        informacion = Leer_csv(self.archivo)
-        self.contenido = informacion.contenido
-        print("paso 1 completo")
-        elemento_primero =self.contenido.pop(0)
-        primer_elemento = division(elemento_primero)
-        primer_elemento.proceso()
-        self.lista_claves = primer_elemento.lista_cadena
-
-        print("defunciones")
-        for i in self.contenido:
-            casteo= division(i)
-            casteo.proceso()
-            casteo.hacer_ajuste_2()
-            #print(casteo.lista_cadena)
-            if casteo.lista_cadena[1] != "9999-99-99":
-                self.incrementar_contadores(casteo.lista_cadena[0]-1,casteo.lista_cadena[2])
-            #print(casteo.lista_cadena)
-
 
 
     def imprimir_resultados(self):
@@ -101,10 +73,8 @@ class Procesar_datos:
 
 
 
-
-#nom_archivo = "210323COVID19MEXICO.csv"
+# proceso de extraccion de los datos
 procesar= Procesar_datos()
 procesar.construir_proceso()
-#procesar.construir_proceso_2()
 procesar.imprimir_resultados()
 
