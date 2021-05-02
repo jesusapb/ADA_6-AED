@@ -10,6 +10,9 @@ class Comorbilidades:
 
 
     def proceso(self):
+
+
+
         pass
 
 

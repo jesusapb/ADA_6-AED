@@ -34,9 +34,10 @@ class Distancias:
 
 
     def calcular_distancia(self):
+        self.distancia_Euclideana()
+        self.distancia_Normal()
+        self.distancia_Wasserstein()
 
-
-        pass
 
 
     def imprimir_distancias(self):
@@ -48,11 +49,11 @@ class Distancias:
 
 
 
-lista_1 = [4,2,2,2,2,2,2,2,2,2,1]
-lista_2 = [3,1,1,1,1,2,2,2,2,2,2]
-prueba_3 = Distancias(lista_1[1:],lista_2[1:])
-prueba_3.distancia_Euclideana()
-prueba_3.imprimir_distancias()
+#lista_1 = [4,2,2,2,2,2,2,2,2,2,1]
+#lista_2 = [3,1,1,1,1,2,2,2,2,2,2]
+#prueba_3 = Distancias(lista_1[1:],lista_2[1:])
+#prueba_3.distancia_Euclideana()
+#prueba_3.imprimir_distancias()
 
 
 
